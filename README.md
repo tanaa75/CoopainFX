@@ -197,6 +197,8 @@ Cette annotation exécute la méthode avant chaque test. Elle sert à initialise
 Il valide un cas "limite" pour s'assurer que l'application ne plante pas et que la logique de facturation fonctionne correctement (le CA ne doit pas augmenter si aucun acte n'est facturé).
 
 **10. Communication JavaFX / ApiService :**  
-Le contrôleur JavaFX capte les actions de l'utilisateur et appelle `ApiService`. Celui-ci effectue la requête réseau, convertit la réponse (ex: JSON) en objets Java, puis les retourne au contrôleur qui met à jour l'interface. 
+Le contrôleur JavaFX capte les actions de l'utilisateur et appelle `ApiService`. Celui-ci effectue la requête réseau, convertit la réponse (ex: JSON) en objets Java, puis les retourne au contrôleur qui met à jour l'interface.
+
+
 ---
 CA TANAVONG SIO 2 SLAM
