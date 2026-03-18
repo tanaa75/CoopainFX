@@ -1,0 +1,133 @@
+= Correction Personnalisée - TP Étude de Cas Coopain
+:author: Correction pour M. Ca Tanavong
+:toc: left
+:toc-title: Sommaire
+:icons: font
+
+Bonjour M. Ca Tanavong.
+
+Le travail fourni sur l'étude de cas Coopain est d'un bon niveau global. Les analyses en cybersécurité, le requêtage SQL et les questions de synthèse théorique sont traités avec rigueur. Cependant, des erreurs algorithmiques mineures sont présentes.
+
+**Rappel impératif :** L'intégralité de ces réponses écrites, ainsi que le prototype JavaFX développé lors des missions 4 et 5, devront faire l'objet d'une validation orale stricte avec M. Robert. Cette étape est indispensable pour confirmer votre maîtrise technique des concepts et valider définitivement vos acquis.
+
+Voici le détail factuel de la correction.
+
+---
+
+== Mission 1 : Gestion des demandes d'insémination
+
+=== Question 1.1 — Règle de gestion
+**Votre réponse :** Lot de paillettes le plus vieux (`MIN`) avec condition de disponibilité (`stockRestant >= 1`).
+
+[NOTE]
+.Évaluation - Validé
+====
+La déduction de la règle métier (FIFO avec condition de stock) est correcte et complète.
+====
+
+=== Question 1.2 — Provenance des informations
+**Votre réponse :** Liste des champs détaillant les sources et transformations.
+
+[NOTE]
+.Évaluation - Conforme
+====
+Le dictionnaire des données est bien maîtrisé. La reconstitution du code-barres (concaténation) et le calcul du quantième sont correctement identifiés.
+====
+
+=== Questions 1.3 et 1.4 — Requêtes SQL (Tarifs et Stocks)
+**Votre réponse :** Requêtes avec jointures simples (`JOIN`) et fonctions d'agrégation.
+
+[WARNING]
+.Remarque - Optimisation SQL
+====
+Les syntaxes sont fonctionnelles. Toutefois, pour la question 1.4, l'utilisation d'un `JOIN` classique exclut les taureaux dont le stock est tombé à zéro. L'utilisation d'un `LEFT JOIN` est encore mieux dans ce cas de figure pour obtenir un inventaire complet. À retenir pour les futures épreuves.
+====
+
+=== Question 1.5 — Modèle relationnel
+**Votre réponse :** Définition textuelle des entités (Demande, Vehicule, Inseminateur, Secteur, etc.) et des clés étrangères.
+
+[NOTE]
+.Évaluation - Validé
+====
+La modélisation de la nouvelle gestion est structurellement exacte. Les contraintes d'intégrité sont respectées.
+====
+
+== Mission 2 : Nouvelles fonctionnalités (MobiSemin)
+
+=== Question 2.1 — Scénarios d'erreur
+**Votre réponse :** Incohérence kilométrique (fin <= début).
+
+[NOTE]
+.Évaluation - Conforme
+====
+Le scénario de contrôle de saisie est valide.
+====
+
+=== Question 2.2 — Base de données SQLite (`onCreate`)
+**Votre réponse :** Requête `CREATE TABLE histoKm`.
+
+
+=== Questions 2.3 et 2.4 — Cybersécurité (DICP et OWASP)
+**Votre réponse :** Analyse des risques locaux et réseau. Proposition de SQLCipher, MDM, hachage, HTTPS et jetons de connexion.
+
+[NOTE]
+.Évaluation - Validé
+====
+L'analyse est rigoureuse. Les solutions de remédiation correspondent exactement aux standards de sécurité attendus pour les applications mobiles connectées.
+====
+
+== Mission 3 : Gestion des tournées des inséminateurs
+
+=== Question 3.1 — Programmation Orientée Objet
+**Vos réponses :** Surcharge, `getCoordGPS`, `getAdherents`, `montantAFacturer`.
+
+[WARNING]
+.Erreur Algorithmique - Doublons
+====
+* **Surcharge, `getCoordGPS` et `montantAFacturer` :** L'implémentation est correcte.
+* **`getAdherents` :** Votre boucle ajoute systématiquement l'adhérent de chaque visite dans la liste. Si un même adhérent reçoit deux visites, il sera présent en double. Il manque une condition de vérification (ex: `!lesAdherents.contains(...)`) avant l'ajout.
+====
+
+=== Question 3.2 — Tests unitaires (JUnit)
+**Votre réponse :** Implémentation du scénario de test pour `CATournee`.
+
+[NOTE]
+.Évaluation - Validé
+====
+Le scénario est exact. L'utilisation du paramètre `0.001f` pour gérer la précision des assertions sur les flottants est une excellente pratique technique. À reproduire en Edc BTS.
+====
+
+=== Question 3.3 — Cybersécurité des API (MITM)
+**Votre réponse :** Explication de l'attaque "l'homme du milieu" et parade par chiffrement de bout en bout (HTTPS/TLS).
+
+[NOTE]
+.Évaluation - Conforme
+====
+Le mécanisme de l'attaque et la solution réseau sont bien identifiés.
+====
+
+---
+
+== Questions de synthèse
+
+**Vos réponses :** 10 points résumant les concepts théoriques du TP (Traçabilité, SQLite, Hachage, MITM, ORM, JUnit, etc.).
+
+[NOTE]
+.Évaluation - Très satisfaisant
+====
+La synthèse est factuelle et précise.
+La mention de l'ajout d'un "sel" (salt) aléatoire pour renforcer le hachage cryptographique BCrypt est une bonne pratique.
+====
+
+---
+
+
+== Conclusion
+
+Note estimée : **16 / 20**
+
+Le compte rendu écrit témoigne d'une bonne assimilation de l'architecture logicielle et de la sécurité. Les bases en Java et SQL sont solides malgré un oubli sur le filtrage de liste. La note est toutefois plafonnée par l'absence des missions de prototypage.
+
+Pour valider définitivement vos compétences sur cette étude de cas, vous devez impérativement :
+- Présenter plus tôt le fonctionnement de votre prototype (JavaFX / Hibernate) pour les missions 4 et 5.
+- Contacter M. Robert pour passer l'entretien oral obligatoire sur ce rendu.
