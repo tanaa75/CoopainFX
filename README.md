@@ -71,8 +71,8 @@ Le kilométrage de fin de tournée saisi est inférieur ou égal au kilométrage
 strReq = "CREATE TABLE histoKm(" +
          "id INTEGER PRIMARY KEY AUTOINCREMENT, " +
          "dateTournee TEXT, " +
-         "kmDebut INTEGER, " +
-         "kmFin INTEGER, " +
+         "kmDebut real, " +
+         "kmFin real, " +
          "idVehicule INTEGER, " +
          "idInseminateur INTEGER)";
 db.execSQL(strReq);
